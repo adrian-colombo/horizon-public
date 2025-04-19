@@ -1,21 +1,22 @@
 // Constantes
 const valoresAtividade = {
-    atvd_vs_selvagem: 2,
-    atvd_vs_npc: 3,
-    atvd_midiatico: 3,
-    atvd_cotidiano: 5,
-    atvd_emprego: 3,
-    atvd_craft: 3,
-    atvd_treinamento: 4
+    //                          19.04.2025 -- ALT001:Alterado para +1 em todas sub.
+    atvd_vs_selvagem: 3,
+    atvd_vs_npc: 4,
+    // atvd_midiatico: 4,       19.04.2025 -- ALT001:Não existe mais
+    atvd_cotidiano: 6,
+    atvd_emprego: 4,
+    atvd_craft: 4,
+    atvd_treinamento: 5
 };
 
-const valoresSubAtividade = {
-    satvd_nenhum: 0,
-    satvd_cuidados: 1,
-    satvd_item: 1,
-    satvd_interacoes: 2,
-    satvd_colheita: 1
-};
+// const valoresSubAtividade = {
+//     satvd_nenhum: 0,
+//     satvd_cuidados: 1,
+//     satvd_item: 1,
+//     satvd_interacoes: 2,
+//     satvd_colheita: 1
+// };
 
 const requisitosExp = [200, 400, 700, 1200, 'ထ'];
 
@@ -36,10 +37,10 @@ function calc_atividade() {
     let lv_valorAtividade = valoresAtividade[lv_atividadeSelecionada];
 
     // Procura valor da sub-atividade
-    let lv_subAtividadeSelecionada = document.querySelector('input[name="subatividade"]:checked').id;
-    let lv_valorSubAtividade = valoresSubAtividade[lv_subAtividadeSelecionada];
+    // let lv_subAtividadeSelecionada = document.querySelector('input[name="subatividade"]:checked').id;
+    // let lv_valorSubAtividade = valoresSubAtividade[lv_subAtividadeSelecionada];
 
-    v_atividade = lv_valorAtividade + lv_valorSubAtividade;
+    v_atividade = lv_valorAtividade;
 }
 
 function calc_multiplicadores() {
@@ -49,7 +50,8 @@ function calc_multiplicadores() {
 
     // Caso o campo esteja selecionado, adiciona no multiplicador
     if (lv_check_civil === true) {
-        v_multiplicador = v_multiplicador * 2;
+        // v_multiplicador = v_multiplicador * 2;       19.04.2025 -- ALT001:Reduzido para 1.4
+        v_multiplicador = v_multiplicador * 1.4;
     }
 
     if (lv_check_pericia === true) {
